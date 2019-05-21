@@ -1,0 +1,78 @@
+{
+  "name": "trim-agency-alexa-starter",
+  "version": "1.0.0",
+  "description": "TRIM Alexa Starter Kit in TypeScript.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon",
+    "build": "npm run clean && npm run test:coverage && gulp",
+    "clean": "rimraf dist",
+    "deploy": "npm run build && ask deploy --force",
+    "deploy:lambda": "npm run build && ask deploy --force --target lambda",
+    "deploy:models": "ask deploy -t model",
+    "deploy:skill": "ask deploy -t skill --force",
+    "get:models": "ask api get-model -s <SKILL_ID> -l en-US > models/en-US.json",
+    "get:skill": "ask api get-skill --skill-id <SKILL_ID> > skill.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "tunnel": "ngrok start alexa"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx"
+    ],
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "coverageDirectory": ".coverage"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "tslint",
+    "typescript"
+  ],
+  "author": "TRIM Agency - Steven Gilliam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrimAgency/alexa-starter.git"
+  },
+  "dependencies": {
+    "ask-sdk-core": "^2.5.2",
+    "ask-sdk-model": "1.15.1",
+    "body-parser": "^1.19.0",
+    "i18next": "^11.10.2",
+    "i18next-sprintf-postprocessor": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
+    "@types/i18next": "^8.4.6",
+    "@types/i18next-sprintf-postprocessor": "0.0.29",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.2",
+    "del": "^4.0.0",
+    "express": "^4.17.0",
+    "gulp": "^4.0.0",
+    "gulp-typescript": "^4.0.1",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}

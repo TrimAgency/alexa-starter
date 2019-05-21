@@ -1,0 +1,17 @@
+{
+  "name": "trim-agency-alexa-starter",
+  "version": "1.0.0",
+  "description": "TRIM Alexa Starter Kit in TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TRIM Agency - Steven Gilliam",
+  "dependencies": {
+    "ask-sdk-core": "^2.5.2",
+    "ask-sdk-model": "1.15.1",
+    "body-parser": "^1.19.0",
+    "i18next": "^11.10.2",
+    "i18next-sprintf-postprocessor": "^0.2.2"
+  }
+}
